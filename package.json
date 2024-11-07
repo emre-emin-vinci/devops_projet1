@@ -1,0 +1,23 @@
+{
+  "name": "devops_projet1",
+  "version": "1.0.0",
+  "description": "school project about Berlin's clock",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emre-emin-vinci/devops_projet1.git"
+  },
+  "author": "Julien Damilot & Emre Emin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emre-emin-vinci/devops_projet1/issues"
+  },
+  "homepage": "https://github.com/emre-emin-vinci/devops_projet1#readme",
+  "devDependencies": {
+    "jasmine": "^5.4.0"
+  }
+}
