@@ -8,6 +8,7 @@ export class Main {
             console.log(result);
             return result;
         }
+        return '0 lampes allumees'; 
     }
 
     one_minute_lights_display(minutes) {
