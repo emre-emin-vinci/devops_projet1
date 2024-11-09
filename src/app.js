@@ -1,13 +1,19 @@
 export class Main {
-    one_minute_line(timestamp) {
+    getMinutes(timestamp) {
         let minutes = Math.floor(timestamp / 60);
         console.log(timestamp);
         console.log(minutes);
+        return minutes;
+    }
+
+    one_minute_line(timestamp) {
+        const minutes = this.getMinutes(timestamp);
         if (minutes > 0) {
             const result = this.one_minute_lights_display(minutes);
             console.log(result);
             return result;
         }
+        return '0 lampes allumees'; 
     }
 
     one_minute_lights_display(minutes) {
