@@ -1,4 +1,5 @@
 export class Main {
+
     getMinutes(timestamp) {
         let minutes = Math.floor(timestamp / 60);
         console.log(timestamp);
@@ -32,5 +33,12 @@ export class Main {
         if (minutes % 5 === 4) {
             return '4 lampes allumees';
         }
+    }
+
+    five_minutes_line(timestamp) {
+        const minutes = this.getMinutes(timestamp);
+        const lamps = Math.floor((minutes % 60) / 5);
+        console.log(lamps);
+        return `${lamps} lampes allumees`
     }
 }
