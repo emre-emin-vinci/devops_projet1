@@ -6,7 +6,7 @@ export class Main {
         console.log(minutes);
         return minutes;
     }
-    
+
     getHours(timestamp) {
         let hours = Math.floor((this.getMinutes(timestamp) / 60 ) %24 );
         console.log(hours+" <-- hours");
@@ -15,18 +15,6 @@ export class Main {
 
     one_minute_line(timestamp) {
         const minutes = this.getMinutes(timestamp);
-        if (minutes > 0) {
-            const result = this.one_minute_lights_display(minutes);
-            console.log(result);
-            return result;
-        }
-        return '0 lampes allumees'; 
-    }
-
-    one_minute_lights_display(minutes) {
-        if (minutes % 5 === 0) {
-            return '0 lampes allumees';
-        }
         if (minutes % 5 === 1) {
             return '1 lampe allumee';
         }
@@ -39,6 +27,7 @@ export class Main {
         if (minutes % 5 === 4) {
             return '4 lampes allumees';
         }
+        return '0 lampes allumees'; 
     }
 
     five_minutes_line(timestamp) {
