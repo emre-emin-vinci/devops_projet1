@@ -101,66 +101,65 @@ export class Main {
         
         
 
-        for(i=0; i<4; i++){
-            if(five_hours_line>0) {
-                temp = temp + 'R';
-            } else {
-                temp = temp + 'O';
-            }
+        for (i = 0; i < 4; i++) {
+            modularLightDisplay(five_hours_line, 'R')    
             five_hours_line--;
-        }
-        return_text.push(temp);
-        console.log(return_text+" <-- return_text");
-        console.log(temp+" <-- temp");
-        temp = '';
+        };
+        appendTemporaryValue();
 
-        for(i=0; i<4; i++){
-            if(one_hour_line>0) {
-                temp = temp + 'R';
-            } else {
-                temp = temp + 'O';
-            }
+        for (i = 0; i < 4; i++) {
+            modularLightDisplay(one_hour_line, 'R')    
             one_hour_line--;
-        }
-        return_text.push(temp);
-        console.log(return_text+" <-- return_text");
-        console.log(temp+" <-- temp");
-        temp = '';
+        };
+        appendTemporaryValue();
 
         for(i=0; i<11; i++){
-            if(five_minutes_line>0) {
-                if(index % 3 == 0) {
-                    temp = temp + 'R';
-                } else {
-                    temp = temp + 'Y';
-                }
-                index++;
-            } else {
-                temp = temp + 'O';
-            }
-            
+            fiveMinutesLightDisplay();
             five_minutes_line--;
         }
-        return_text.push(temp);
-        console.log(return_text+" <-- return_text");
-        console.log(temp+" <-- temp");
-        temp = '';
+        appendTemporaryValue();
 
-        for(i=0; i<4; i++){
-            if(one_minute_line>0) {
-                temp = temp + 'Y';
-            } else {
-                temp = temp + 'O';
-            }
+        for (i = 0; i < 4; i++) {
+            modularLightDisplay(one_minute_line, 'Y')    
             one_minute_line--;
-        }
-        return_text.push(temp);
-        console.log(return_text+" <-- return_text");
-        console.log(temp+" <-- temp");
+        };
+        appendTemporaryValue();
 
         for(let line of return_text) {
             result = result + line + '\n';
         }
         return result;
+
+        function fiveMinutesLightDisplay() {
+            if (five_minutes_line > 0) {
+                appendColorBasedOnIndex();
+                index++;
+            } else {
+                temp = temp + 'O';
+            }
+        }
+
+        function appendColorBasedOnIndex() {
+            if (index % 3 == 0) {
+                temp = temp + 'R';
+            } else {
+                temp = temp + 'Y';
+            }
+        }
+
+        function appendTemporaryValue() {
+            return_text.push(temp);
+            console.log(return_text + " <-- return_text");
+            console.log(temp + " <-- temp");
+            temp = '';
+        }
+
+        function modularLightDisplay(number, color) {
+            if (number > 0) {
+                temp = temp + color;
+            } else {
+                temp = temp + 'O';
+            }
+        }
     }
 }
