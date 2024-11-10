@@ -6,6 +6,7 @@ export class Main {
         console.log(minutes);
         return minutes;
     }
+    
     getHours(timestamp) {
         let hours = Math.floor((this.getMinutes(timestamp) / 60 ) %24 );
         console.log(hours+" <-- hours");
@@ -44,8 +45,9 @@ export class Main {
         const minutes = this.getMinutes(timestamp);
         const lamps = Math.floor((minutes % 60) / 5);
         console.log(lamps);
-        return `${lamps} lampes allumees`
+        return `${lamps} lampes allumees`;
     }
+
     one_hour_line(timestamp){
         const hours = this.getHours(timestamp);
         if (hours % 5 === 1) {
