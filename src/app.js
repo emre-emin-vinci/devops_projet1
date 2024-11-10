@@ -9,6 +9,7 @@ export class Main {
     getHours(timestamp) {
         let hours = Math.floor((this.getMinutes(timestamp) / 60 ) %24 );
         console.log(hours+" <-- hours");
+        return hours;
     }
 
     one_minute_line(timestamp) {
