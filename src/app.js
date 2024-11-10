@@ -45,4 +45,20 @@ export class Main {
         console.log(lamps);
         return `${lamps} lampes allumees`
     }
+    one_hour_line(timestamp){
+        const hours = this.getHours(timestamp);
+        if (hours % 5 === 1) {
+            return '1 lampe allumee';
+        }
+        if (hours % 5 === 2) {
+            return '2 lampes allumees';
+        }
+        if (hours % 5 === 3) {
+            return '3 lampes allumees';
+        }
+        if (hours % 5 === 4) {
+            return '4 lampes allumees';
+        }
+        return '0 lampes allumees';
+    }
 }
