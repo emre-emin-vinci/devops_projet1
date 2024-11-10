@@ -147,3 +147,17 @@ describe("A suite of tests for the function five_hours_line", function() {
         expect(main.five_hours_line(1731290109)).toBe('0 lampes allumees');
     })
 });
+
+describe("A suite of tests for the function even_second_lamp", function() {
+
+    it("should return 'lampe allumee'", function(){
+        let main = new Main();
+        expect(main.even_second_lamp(1731160826)).toBe('lampe allumee');
+    });
+
+    it("should return 'lampe eteinte'", function(){
+        let main = new Main();
+        expect(main.even_second_lamp(1731160827)).toBe('lampe eteinte');
+    });
+
+});
