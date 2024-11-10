@@ -67,4 +67,100 @@ export class Main {
         }
         return 0;
     }
+
+    clock(timestamp) {
+        const seconds_lamp = this.even_second_lamp(timestamp);
+        console.log(seconds_lamp+" <-- seconds_lamp");
+        
+        let five_hours_line = this.five_hours_line(timestamp);
+        console.log(five_hours_line+" <-- five_hours_line");
+        
+
+        let one_hour_line = this.one_hour_line(timestamp);
+        console.log(one_hour_line+" <-- one_hour_line");
+        
+        let five_minutes_line = this.five_minutes_line(timestamp);
+        console.log(five_minutes_line+" <-- five_minutes_line");
+
+        let one_minute_line = this.one_minute_line(timestamp);
+        console.log(one_minute_line+" <-- one_minute_line");
+
+        let return_text = new Array;
+        let temp = '';
+        let i = 0;
+        let result= '';
+        let index = 1;
+
+        if(seconds_lamp === 0) {
+            return_text.push('O');
+        } else {
+            return_text.push('R');
+        }
+        console.log(return_text+" <-- return_text");
+        console.log(temp+" <-- temp");
+        
+        
+
+        for(i=0; i<4; i++){
+            if(five_hours_line>0) {
+                temp = temp + 'R';
+            } else {
+                temp = temp + 'O';
+            }
+            five_hours_line--;
+        }
+        return_text.push(temp);
+        console.log(return_text+" <-- return_text");
+        console.log(temp+" <-- temp");
+        temp = '';
+
+        for(i=0; i<4; i++){
+            if(one_hour_line>0) {
+                temp = temp + 'R';
+            } else {
+                temp = temp + 'O';
+            }
+            one_hour_line--;
+        }
+        return_text.push(temp);
+        console.log(return_text+" <-- return_text");
+        console.log(temp+" <-- temp");
+        temp = '';
+
+        for(i=0; i<11; i++){
+            if(five_minutes_line>0) {
+                if(index % 3 == 0) {
+                    temp = temp + 'R';
+                } else {
+                    temp = temp + 'Y';
+                }
+                index++;
+            } else {
+                temp = temp + 'O';
+            }
+            
+            five_minutes_line--;
+        }
+        return_text.push(temp);
+        console.log(return_text+" <-- return_text");
+        console.log(temp+" <-- temp");
+        temp = '';
+
+        for(i=0; i<4; i++){
+            if(one_minute_line>0) {
+                temp = temp + 'Y';
+            } else {
+                temp = temp + 'O';
+            }
+            one_minute_line--;
+        }
+        return_text.push(temp);
+        console.log(return_text+" <-- return_text");
+        console.log(temp+" <-- temp");
+
+        for(let line of return_text) {
+            result = result + line + '\n';
+        }
+        return result;
+    }
 }
