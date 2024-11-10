@@ -90,3 +90,27 @@ describe("A suite of tests for the function five_minutes_line", function() {
         expect(main.five_minutes_line(1731153345)).toBe('11 lampes allumees');
     })
 })
+
+describe("A suite of tests for the function one_hour_line", function() {
+    it("should return '1 lampe allumee'", function(){
+        let main = new Main();
+        expect(main.one_hour_line(1731153345)).toBe('1 lampe allumee');
+    })
+    it("should return '2 lampes allumees'", function(){
+        let main = new Main();
+        expect(main.one_hour_line(1731241733)).toBe('2 lampes allumees');
+    })
+    it ("should return '3 lampes allumees'", function(){
+        let main = new Main();
+        expect(main.one_hour_line(1731245333)).toBe('3 lampes allumees');
+    })
+    it ("should return '4 lampes allumees'", function(){
+        let main = new Main();
+        expect(main.one_hour_line(1731248933)).toBe('4 lampes allumees');
+    })
+    it ("should return '0 lampes allumees'", function(){
+        let main = new Main();
+        expect(main.one_hour_line(1731252533)).toBe('0 lampes allumees');
+    })
+
+})
