@@ -60,4 +60,11 @@ export class Main {
         console.log(lamps+" <-- lamps");
         return `${lamps} lampes allumees`;
     }
+
+    even_second_lamp(timestamp) {
+        if (timestamp % 2 === 0) {
+            return 'lampe allumee';
+        }
+        return 'lampe eteinte';
+    }
 }
