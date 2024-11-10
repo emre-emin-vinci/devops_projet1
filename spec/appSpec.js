@@ -161,3 +161,21 @@ describe("A suite of tests for the function even_second_lamp", function() {
     });
 
 });
+
+describe("A suite of tests for the function clock", function() {
+
+    it("should return the correct time", function(){
+        let main = new Main();
+        expect(main.clock(1731160826)).toBe("R\nRROO\nRRRR\nOOOOOOOOOOO\nOOOO\n");
+    });
+
+    it("should return the correct time", function(){
+        let main = new Main();
+        expect(main.clock(1731236049)).toBe("O\nRROO\nOOOO\nYYRYYRYYRYO\nYYYY\n");
+    });
+
+    it("should return the correct time", function(){
+        let main = new Main();
+        expect(main.clock(1731250449)).toBe("O\nRROO\nRRRR\nYYRYYRYYRYO\nYYYY\n");
+    });
+});
