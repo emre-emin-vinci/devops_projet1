@@ -6,6 +6,10 @@ export class Main {
         console.log(minutes);
         return minutes;
     }
+    getHours(timestamp) {
+        let hours = Math.floor((this.getMinutes(timestamp) / 60 ) %24 );
+        console.log(hours+" <-- hours");
+    }
 
     one_minute_line(timestamp) {
         const minutes = this.getMinutes(timestamp);
