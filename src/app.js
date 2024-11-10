@@ -53,4 +53,11 @@ export class Main {
         }
         return '0 lampes allumees';
     }
+
+    five_hours_line(timestamp) {
+        const hours = this.getHours(timestamp);
+        const lamps = Math.floor(hours / 5);
+        console.log(lamps+" <-- lamps");
+        return `${lamps} lampes allumees`;
+    }
 }
