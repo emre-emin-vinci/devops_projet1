@@ -21,19 +21,7 @@ export class Main {
     // Function to calculate the number of lamps to be lit in the one minute line
     one_minute_line(timestamp) {
         const minutes = this.getMinutes(timestamp);
-        if (minutes % 5 === 1) {
-            return 1;
-        }
-        if (minutes % 5 === 2) {
-            return 2;
-        }
-        if (minutes % 5 === 3) {
-            return 3;
-        }
-        if (minutes % 5 === 4) {
-            return 4;
-        }
-        return 0; 
+        return minutes % 5; 
     }
 
     // Function to calculate the number of lamps to be lit in the five minutes line
