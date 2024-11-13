@@ -102,64 +102,67 @@ export class Main {
         
 
         for (i = 0; i < 4; i++) {
-            modularLightDisplay(five_hours_line, 'R')    
+            temp = this.modularLightDisplay(five_hours_line, 'R', temp)    
             five_hours_line--;
         };
-        appendTemporaryValue();
+        temp = this.appendTemporaryValue(return_text, temp);
 
         for (i = 0; i < 4; i++) {
-            modularLightDisplay(one_hour_line, 'R')    
+            temp = this.modularLightDisplay(one_hour_line, 'R', temp)    
             one_hour_line--;
         };
-        appendTemporaryValue();
+        temp = this.appendTemporaryValue(return_text, temp);
 
         for(i=0; i<11; i++){
-            fiveMinutesLightDisplay();
+            [temp, index] = this.fiveMinutesLightDisplay(five_minutes_line, index, temp);
             five_minutes_line--;
         }
-        appendTemporaryValue();
+        temp = this.appendTemporaryValue(return_text, temp);
 
         for (i = 0; i < 4; i++) {
-            modularLightDisplay(one_minute_line, 'Y')    
+            temp = this.modularLightDisplay(one_minute_line, 'Y', temp)    
             one_minute_line--;
         };
-        appendTemporaryValue();
+        temp = this.appendTemporaryValue(return_text, temp);
 
         for(let line of return_text) {
             result = result + line + '\n';
         }
         return result;
+    }
 
-        function fiveMinutesLightDisplay() {
-            if (five_minutes_line > 0) {
-                appendColorBasedOnIndex();
-                index++;
-            } else {
-                temp = temp + 'O';
-            }
+    fiveMinutesLightDisplay(five_minutes_line, index, temp) {
+        if (five_minutes_line > 0) {
+            temp = this.appendColorBasedOnIndex(index, temp);
+            index++;
+        } else {
+            temp = temp + 'O';
         }
+        return [temp, index];
+    }
 
-        function appendColorBasedOnIndex() {
-            if (index % 3 == 0) {
-                temp = temp + 'R';
-            } else {
-                temp = temp + 'Y';
-            }
+    appendColorBasedOnIndex(index, temp) {
+        if (index % 3 == 0) {
+            temp = temp + 'R';
+        } else {
+            temp = temp + 'Y';
         }
+        return temp;
+    }
 
-        function appendTemporaryValue() {
-            return_text.push(temp);
-            console.log(return_text + " <-- return_text");
-            console.log(temp + " <-- temp");
-            temp = '';
-        }
+    appendTemporaryValue(return_text, temp) {
+        return_text.push(temp);
+        console.log(return_text + " <-- return_text");
+        console.log(temp + " <-- temp");
+        return temp = '';
+    }
 
-        function modularLightDisplay(number, color) {
-            if (number > 0) {
-                temp = temp + color;
-            } else {
-                temp = temp + 'O';
-            }
+    modularLightDisplay(number, color, temp) {
+        if (number > 0) {
+            temp = temp + color;
+        } else {
+            temp = temp + 'O';
         }
+        return temp;
     }
 }
