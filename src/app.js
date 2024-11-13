@@ -1,5 +1,9 @@
 export class Main {
+    
 
+    // 'Y' means yellow color, 'R' means red color and 'O' means off (clock method)
+
+    // Function to convert the timestamp into minutes
     getMinutes(timestamp) {
         let minutes = Math.floor(timestamp / 60);
         console.log(timestamp);
@@ -7,12 +11,14 @@ export class Main {
         return minutes;
     }
 
+    // Function to convert the timestamp into hours
     getHours(timestamp) {
         let hours = Math.floor((this.getMinutes(timestamp) / 60 ) %24 );
         console.log(hours+" <-- hours");
         return hours;
     }
 
+    // Function to calculate the number of lamps to be lit in the one minute line
     one_minute_line(timestamp) {
         const minutes = this.getMinutes(timestamp);
         if (minutes % 5 === 1) {
@@ -30,6 +36,7 @@ export class Main {
         return 0; 
     }
 
+    // Function to calculate the number of lamps to be lit in the five minutes line
     five_minutes_line(timestamp) {
         const minutes = this.getMinutes(timestamp);
         const lamps = Math.floor((minutes % 60) / 5);
@@ -37,6 +44,7 @@ export class Main {
         return lamps;
     }
 
+    // Function to calculate the number of lamps to be lit in the one hour line
     one_hour_line(timestamp){
         const hours = this.getHours(timestamp);
         if (hours % 5 === 1) {
@@ -54,6 +62,7 @@ export class Main {
         return 0;
     }
 
+    // Function to calculate the number of lamps to be lit in the five hours line
     five_hours_line(timestamp) {
         const hours = this.getHours(timestamp);
         const lamps = Math.floor(hours / 5);
@@ -61,6 +70,7 @@ export class Main {
         return lamps;
     }
 
+    // Function to determine if the seconds lamp should be lit
     even_second_lamp(timestamp) {
         if (timestamp % 2 === 0) {
             return 1;
@@ -68,6 +78,7 @@ export class Main {
         return 0;
     }
 
+    // Function to display the Berlin Clock
     clock(timestamp) {
         const seconds_lamp = this.even_second_lamp(timestamp);
         console.log(seconds_lamp+" <-- seconds_lamp");
@@ -131,6 +142,7 @@ export class Main {
         return result;
     }
 
+    // Function to generate the color of the five minutes line
     fiveMinutesLightDisplay(five_minutes_line, index, temp) {
         if (five_minutes_line > 0) {
             temp = this.appendColorBasedOnIndex(index, temp);
@@ -141,6 +153,7 @@ export class Main {
         return [temp, index];
     }
 
+    // Function to append the color based on the index
     appendColorBasedOnIndex(index, temp) {
         if (index % 3 == 0) {
             temp = temp + 'R';
@@ -150,6 +163,7 @@ export class Main {
         return temp;
     }
 
+    // Function to append one line of the clock to the return_text
     appendTemporaryValue(return_text, temp) {
         return_text.push(temp);
         console.log(return_text + " <-- return_text");
@@ -157,6 +171,7 @@ export class Main {
         return temp = '';
     }
 
+    // Function to determine the amount of light to be displayed and its color
     modularLightDisplay(number, color, temp) {
         if (number > 0) {
             temp = temp + color;
